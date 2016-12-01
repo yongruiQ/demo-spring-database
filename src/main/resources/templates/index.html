@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:include="layouts/layout :: page">
+
+<!-- ============================================================================ -->
+<!-- This content inside <head> tag is entirely optional.                         -->
+<!-- The main benefit of doing so is to enable autocompletion of BootStrap 3      -->
+<!-- ============================================================================ -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="../static/css/core.css"
+          th:href="@{/css/core.css}"
+          rel="stylesheet" media="screen" />
+    <link href="../static/css/bootstrap.min.css"
+          th:href="@{/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen" />
+    <script src="../static/js/jquery.min.js"
+            th:src="@{/js/jquery.min.js}"></script>
+</head>
+
+
+<!-- The below content will replace the <div th:include="this :: content"/> part of layouts/layout.html -->
+<div th:fragment="content">
+    <div class="hero-unit">
+        <p>
+            <a href="https://github.com/kolorobot/spring-boot-thymeleaf.git" class="btn btn-large btn-success">GitHub Project for this demo</a>
+        </p>
+    </div>
+    <div>
+        <h1>Spring Boot Demo</h1>
+        <p>
+            A Spring Boot demo, using Thymeleaf template and its layout features.
+        </p>
+        <table>
+            <thead>
+            <tr>
+                <th th:width="60px">Route</th>
+                <th th:width="150px">Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <p><a href="#" th:href="@{/hello?name=James}">Hello</a></p>
+                </td>
+                <td>
+                    <p>Sow hello page.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><a href="#" th:href="@{/json}">Json</a></p>
+                </td>
+                <td>
+                    <p>Show Json page.</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</html>
