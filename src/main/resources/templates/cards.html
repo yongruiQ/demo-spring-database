@@ -31,8 +31,8 @@
     <div class="form-group">
         <ol class="list-group">
             <li class="list-group-item list-group-item-info" th:each="card : ${cards}">
-                <a href="/note.html" th:href="@{/note/}+${card.id}"><span th:text="${card.title}"></span></a>
-                <a href="delete//card/card.html" th:href="@{/delete/card/}+${card.id}" class="pull-right">delete</a>
+                <a href="#" th:href="@{/note/}+${card.id}"><span th:text="${card.title}"></span></a>
+                <a href="#" th:href="@{/delete/card/}+${card.id}" class="pull-right">delete</a>
             </li>
         </ol>
     </div>
