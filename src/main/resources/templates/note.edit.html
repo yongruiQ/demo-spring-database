@@ -20,22 +20,13 @@
 </head>
 
 <div th:fragment="content">
-    <h3>Note Creation and Display for Card: <span th:text="${card.title}" class="text-success"/></h3>
+    <h3>Update Note for Card: <span th:text="${card.title}" class="text-success"/></h3>
 
-    <form action="#" th:action="@{/create/note/}+${card.id}" th:object="${note}" method="post">
+    <form action="#" th:action="@{/edit/note/}+${card.id}" th:object="${note}" method="post">
         <input type="hidden" th:field="*{id}" />
         <textarea id="body" name="body" th:field="*{body}" class="form-control"/>
-        <p><input type="submit" value="Submit" /></p>
+        <p><input type="submit" value="Update" /><a href="#" th:href="@{/note/}+${card.id}" class="pull-right">Back</a></p>
     </form>
-
-    <div class="form-group">
-        <ol class="list-group">
-            <li class="list-group-item list-group-item-info" th:each="note : ${notes}">
-                <a href="#" th:href="@{/edit/note/}+${card.id}+'/'+${note.id}"><span th:text="${note.body}"/></a>
-                <a href="#" th:href="@{/delete/note/}+${card.id}+'/'+${note.id}" class="pull-right">delete</a>
-            </li>
-        </ol>
-    </div>
 
     <div th:if="${type != null}" th:replace="fragments/alert :: alert (type=${type}, message=${message})"/>
     <!--<div th:replace="fragments/alert :: alert (type='info', message='Info message example')"/>-->
